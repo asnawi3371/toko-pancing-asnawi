@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toko Pancing Asnawi</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+        /* Reset CSS */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #f9f9f9;
+            color: #444;
+        }
+
+        header {
+            background-color: #1a2a3a;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 5px 10px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        nav ul li a:hover {
+            background-color: #18bc9c;
+            color: white;
+            border-radius: 5px;
+        }
+
+        section {
+            padding: 50px 20px;
+            max-width: 1200px;
+            margin: auto;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            color: #333;
+        }
+
+        .slider {
+            position: relative;
+            width: 100%;
+            max-width: 900px;
+            margin: 20px auto;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .slides {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .slide {
+            min-width: 100%;
+            box-sizing: border-box;
+            text-align: center;
+            padding: 30px;
+            background: linear-gradient(to bottom right, #ff7e5f, #feb47b);
+            color: white;
+            border-radius: 15px;
+            position: relative;
+        }
+
+        .slide img {
+            width: 200px;
+            height: 200px;
+            margin-bottom: 15px;
+            transition: transform 0.3s ease;
+            border: 3px solid white;
+            border-radius: 50%;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .slide img:hover {
+            transform: scale(1.15);
+        }
+
+        .slide h3 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+
+        .slide p {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+
+        .prev, .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 15px;
+            cursor: pointer;
+            border-radius: 50%;
+            transition: background-color 0.3s;
+            z-index: 10;
+        }
+
+        .prev:hover, .next:hover {
+            background-color: #18bc9c;
+        }
+
+        .prev {
+            left: 20px;
+        }
+
+        .next {
+            right: 20px;
+        }
+
+        button {
+            background-color: #18bc9c;
+            color: white;
+            padding: 15px 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 1em;
+            border-radius: 5px;
+            transition: background-color 0.3s, transform 0.3s;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        button:hover {
+            background-color: #0e7e68;
+            transform: translateY(-2px);
+        }
+
+        #orderForm {
+            display: none;
+            padding: 30px;
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            margin-top: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        form {
+            max-width: 500px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        label {
+            font-weight: 600;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        footer {
+            background-color: #1a2a3a;
+            color: white;
+            padding: 30px;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .social-icons {
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            color: white;
+            margin: 0 15px;
+            font-size: 28px;
+            transition: color 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: #18bc9c;
+        }
+    </style>
+    <!-- Menambahkan font-awesome untuk ikon media sosial -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <h1>Selamat Datang di Toko Pancing Asnawi</h1>
+        <nav>
+            <ul>
+                <li><a href="#produk">Produk</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="produk">
+        <h2>Produk Kami</h2>
+        <div class="slider">
+            <div class="slides">
+                <!-- Slide 1 -->
+                <div class="slide">
+                    <img src="D:\Documents\HTML\NEXAVE_SPINNING_COMBO_A.avif" alt="Joran+Reel Shimano">
+                    <h3>Joran+Reel Shimano</h3>
+                    <p>Rp 1.000,000</p>
+                    <button onclick="showForm('Joran+Reel Shimano', 'Rp 1,000,000')">Beli Sekarang</button>
+                </div>
+                <!-- Slide 2 -->
+                <div class="slide">
+                    <img src="OCEA-PLUGGER-FULL-THROTTLE-primary.avif" alt="Joran Shimano">
+                    <h3>Joran Shimano</h3>
+                    <p>Rp 950,000</p>
+                    <button onclick="showForm('Joran Shimano', 'Rp 950,000')">Beli Sekarang</button>
+                </div>
+                <!-- Slide 3 -->
+                <div class="slide">
+                    <img src="D:\Documents\HTML\SKU_51RL151150X.webp" alt="Reel DC Shimano">
+                    <h3>Reel DC Shimano</h3>
+                    <p>Rp 1.750.000</p>
+                    <button onclick="showForm('Reel DC Shimano', 'Rp 1,750,000')">Beli Sekarang</button>
+                </div>
+                <!-- Slide 4 -->
+                <div class="slide">
+                    <img src="sku-SHMBALTICA20LGA-primary.avif" alt="Tempat Ikan Shimano">
+                    <h3>Tempat Ikan Shimano</h3>
+                    <p>Rp 350.000</p>
+                    <button onclick="showForm('Tempat Ikan Shimano', 'Rp 350,000')">Beli Sekarang</button>
+                </div>
+                <!-- Slide 5 -->
+                <div class="slide">
+                    <img src="shopping.webp" alt="Tempat Ikan Shimano">
+                    <h3>Essen Ikan Gacor</h3>
+                    <p>Rp 50.000</p>
+                    <button onclick="showForm('Tempat Ikan Shimano', 'Rp 350,000')">Beli Sekarang</button>
+                </div>
+            </div>
+            <!-- Tombol panah -->
+            <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
+            <button class="next" onclick="changeSlide(1)">&#10095;</button>
+        </div>
+    </section>
+
+    <!-- Form Pemesanan -->
+    <div id="orderForm">
+        <h2>Form Pemesanan</h2>
+        <p id="selectedProduct"></p>
+        <form action="mailto:contoh@tokopancing.com" method="post" enctype="text/plain">
+            <label for="name">Nama:</label>
+            <input type="text" id="name" name="name" required>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <label for="address">Alamat Pengiriman:</label>
+            <textarea id="address" name="address" required></textarea>
+            <label for="quantity">Jumlah:</label>
+            <input type="number" id="quantity" name="quantity" min="1" required>
+            <input type="hidden" id="productName" name="productName">
+            <input type="hidden" id="productPrice" name="productPrice">
+            <button type="submit">Kirim Pesanan</button>
+        </form>
+    </div>
+
+    <footer>
+        <section id="kontak">
+            <h2>Kontak Kami</h2>
+            <p>Email: asnawigacor@gmail.com</p>
+            <p>Telepon: 081521792388</p>
+            <div class="social-icons">
+                <a href="https://www.instagram.com/asnawiiiiiiiiii" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.tiktok.com/@asnawiiiiiiiiiii" target="_blank"><i class="fab fa-tiktok"></i></a>
+                <a href="https://wa.me/6281521792388" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            </div>
+        </section>
+    </footer>
+
+    <script>
+        let currentSlide = 0;
+
+        function showNextSlide() {
+            const slides = document.querySelectorAll('.slide');
+            const totalSlides = slides.length;
+
+            slides[currentSlide].style.opacity = 0;  // Sembunyikan slide saat ini
+            currentSlide = (currentSlide + 1) % totalSlides;  // Pindah ke slide berikutnya
+            slides[currentSlide].style.opacity = 1;  // Tampilkan slide baru
+
+            document.querySelector('.slides').style.transform = `translateX(-${currentSlide * 100}%)`;
+        }
+
+        function changeSlide(n) {
+            const slides = document.querySelectorAll('.slide');
+            const totalSlides = slides.length;
+
+            slides[currentSlide].style.opacity = 0;  // Sembunyikan slide saat ini
+            currentSlide = (currentSlide + n + totalSlides) % totalSlides;  // Pindah ke slide berdasarkan arah (prev/next)
+            slides[currentSlide].style.opacity = 1;  // Tampilkan slide baru
+
+            document.querySelector('.slides').style.transform = `translateX(-${currentSlide * 100}%)`;
+        }
+
+        setInterval(showNextSlide, 4000);  // Ubah slide setiap 4 detik
+
+        function showForm(productName, productPrice) {
+            document.getElementById('orderForm').style.display = 'block';
+            document.getElementById('selectedProduct').innerText = 'Anda memesan: ' + productName + ' dengan harga ' + productPrice;
+            document.getElementById('productName').value = productName;
+            document.getElementById('productPrice').value = productPrice;
+            window.location.href = "#orderForm"; // Mengarahkan pengguna ke form
+        }
+    </script>
+</body>
+</html>
